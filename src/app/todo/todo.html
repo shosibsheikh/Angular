@@ -1,0 +1,18 @@
+<div class="todo-container">
+  <h2>Todo App</h2>
+
+  <div class="add">
+    <input [value]="newText" (input)="newText = $event.target.value" placeholder="Add new todo" />
+    <button (click)="add()">Add</button>
+  </div>
+
+  <ul>
+    <li *ngFor="let t of todos">
+      <input type="checkbox" [checked]="t.done" (change)="toggle(t)" />
+      <span [style.textDecoration]="t.done ? 'line-through' : 'none'">{{ t.text }}</span>
+      <button (click)="remove(t)">x</button>
+    </li>
+  </ul>
+</div>
+
+

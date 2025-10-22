@@ -1,16 +1,25 @@
-import { Routes } from '@angular/router';
-import { Home } from './home/home';
-import { About } from './about/about';
-import { Gallery } from './gallery/gallery';
-import { Services } from './services/services';
-import { Contact } from './contact/contact';
+// import { Routes } from '@angular/router';
+// import { Routes } from '@angular/router';
+// import { TodoComponent } from './todo/todo';
+
+// export const routes: Routes = [
+//   { path: '', redirectTo: 'todo', pathMatch: 'full' },
+//   { path: 'todo', component: TodoComponent }
+// ];
+
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+import { TodoComponent } from './todo/todo';
 
 export const routes: Routes = [
-    { path: '', component: Home }, // default route
-  { path: 'about', component: About },
-  { path: 'gallery', component: Gallery },
-  { path: 'services', component: Services },
-  { path: 'contact', component: Contact },
-  { path: '**', redirectTo: '' } // fallbac
+
+  { path: '', redirectTo: 'todo', pathMatch: 'full' },
+  { path: 'todo', component: TodoComponent },
+  // future routes: { path: 'about', loadChildren: () => import('./about/about.module').then(m => m.AboutModule) }
 ];
 
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
+})
+export class AppRoutingModule { }

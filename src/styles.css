@@ -1,10 +1,1 @@
 /* You can add global styles to this file, and also import other style files */
-body {
-  padding-top: 40px; /* navbar ke height ke barabar space */
-}
-.navbar {
-  background-color: #5e9edd; /* Dark background color */
-}
-html {
-  scroll-behavior: smooth;
-}

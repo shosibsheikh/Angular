@@ -1,22 +1,43 @@
-import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { Home } from './home/home';
-import { About } from './about/about';
-import { Gallery } from './gallery/gallery';
-import { Services } from './services/services';
-import { Contact } from './contact/contact';
-import { RouterLink, RouterLinkActive } from '@angular/router';
+// import { Component, signal } from '@angular/core';
+// import { RouterOutlet } from '@angular/router';
+
+// @Component({
+//   selector: 'app-root',
+//   imports: [RouterOutlet],
+//   templateUrl: './app.html',
+//   styleUrl: './app.css'
+// })
+// export class App {
+//   protected readonly title = signal('todo-upgrade');
+// }
+
+// import { Component } from '@angular/core';
+// import { RouterOutlet } from '@angular/router';
+// import { RouterModule } from '@angular/router';
+
+// @Component({
+//   selector: 'app-root',
+//   standalone: true,
+//   imports: [RouterOutlet, RouterModule],
+//   template: `
+//     <nav style="padding: 10px; background-color: #f5f5f5;">
+//       <a routerLink="/todo">Todo</a>
+//     </nav>
+//     <router-outlet></router-outlet>
+//   `
+// })
+// export class AppComponent {}
+
+import { Component } from '@angular/core';
+import { RouterOutlet } from "@angular/router";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet,Home,About,Gallery,Services,Contact],
-  templateUrl: './app.html',
-  styleUrl: './app.css'
+  templateUrl: './app.html',  // ya inline template: template: `<router-outlet></router-outlet>`
+  styleUrls: ['./app.css'],
+  imports: [RouterOutlet]
 })
-export class App {
-  protected readonly title = signal('anguler-app');
-  name = 'Shoaib';
-  helloMessage() {
-    return 'Hello ' + this.name +'=(this is Function)';
-  }
+export class AppComponent {
+  title = 'todo-upgrade';
 }
+
