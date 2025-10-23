@@ -1,33 +1,25 @@
-import { Component, signal } from '@angular/core';
 
-export interface Item {
-  id: number;
-  name: string;
-  price: number;
-  isInStock?: boolean;
-}
-
+import { CommonModule } from '@angular/common';
+import { Post } from './services/post';
+import { Component, OnInit, signal } from '@angular/core';
 
 @Component({
   selector: 'app-root',
+  standalone: true,
+  imports: [CommonModule], 
   templateUrl: './app.html',
-  standalone: false,
-  styleUrl: './app.css'
+  styleUrls: ['./app.css']
 })
-export class App {
-  protected readonly title = signal('item-manager');
+export class App implements OnInit {
+  title = signal('api-app');
+  posts: any;
 
-   items: Item[] = [
-    { id: 1, name: 'Book', price: 30, isInStock: true },
-    { id: 2, name: 'Pen', price: 10, isInStock: false },
-    { id: 3, name: 'Bag', price: 60, isInStock: true },
-    { id: 4, name: 'Shoes', price: 45, isInStock: false },
-  ];
-item: any;
-   toggleStockStatus(item: Item): void {
-    item.isInStock = !item.isInStock;
-   }
-    trackById(index: number, item: Item) {
-    return item.id;
+  constructor(private post: Post) {}
+
+  ngOnInit() {
+    this.post.getPosts().subscribe(response => {
+      this.posts = response;
+      console.log(this.posts);
+    });
   }
 }

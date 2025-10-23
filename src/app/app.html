@@ -1,81 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
-  
-
 <div class="container">
-  <h1>{{ title }}</h1>
-
-  <ul>
-    <li *ngFor="let item of items; trackBy: trackById">
-      <span>
-        <strong>ID:</strong> {{ item.id }} |
-        <strong>Name:</strong> {{ item.name }} 
-        <span *ngIf="item.isInStock; else outStock" style="color: green;">
-          (In Stock!)
-        </span>
-        <ng-template #outStock>
-          <span style="color: red;">(Out of Stock)</span>
-        </ng-template>
-      </span>
-      <br>
-      <strong>Price:</strong> {{ item.price | currency }}
-      <br>
-
-      <button 
-        (click)="toggleStockStatus(item)" 
-        [disabled]="item.price > 50"
-      >
-        Toggle Stock
-      </button>
-
-      <hr>
-    </li>
-  </ul>
+  <h1>📜GET API </h1>
+  <div class="posts">
+    <div class="post-card" *ngFor="let p of posts">
+      <p>{{ p.id }}</p>
+      <h2>{{ p.title }}</h2>
+      <p>{{ p.body }}</p>
+    </div>
+  </div>
 </div>
-</body>
-</html>
-  <!-- <!DOCTYPE html>
-  <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-  </head>
-  <body>
-    
-<ul>
-  <li *ngFor="let item of items; trackBy: trackById">
-    <span>
-      <strong>ID:</strong> {{ item.id }} |
-      <strong>Name:</strong> {{ item.name }}
-      <span *ngIf="item.isInStock; else outOfStock" style="color: green;">
-        (In Stock!)
-      </span>
-      <ng-template #outOfStock>
-        <span style="color: red;">(Out of Stock)</span>
-      </ng-template>
-    </span>
-
-    <br>
-    <strong>Price:</strong> {{ item.price | currency }}
-    <br>
-
-    <button 
-      (click)="toggleStockStatus(item)" 
-      [disabled]="item.price > 50"
-    >
-      Toggle Stock
-    </button>
-
-    <hr>
-  </li>
-</ul>
-
-  </body>
-  </html> -->
