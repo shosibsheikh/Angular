@@ -1,62 +1,49 @@
-/* Page container */
-.container {
-  max-width: 800px;
-  margin: 40px auto;
-  padding: 20px;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+body, :host {
+  font-family: "Segoe UI", Arial, sans-serif;
 }
 
-/* Title */
-.container h1 {
-  text-align: center;
-  color: #333;
-  margin-bottom: 30px;
-  font-size: 2rem;
+.bg-light {
+  background: linear-gradient(180deg, #f7fbff 0%, #eef6ff 100%);
 }
 
-/* Posts grid */
-.posts {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 20px;
+.card {
+  border-radius: 16px;
 }
 
-/* Individual post cards */
-.post-card {
-  background: #ffffff;
-  border-radius: 12px;
-  padding: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+.btn-primary {
+  box-shadow: 0 6px 16px rgba(13,110,253,0.3);
 }
 
-/* Hover effect */
-.post-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+.form-control:focus {
+  box-shadow: 0 0 0 0.25rem rgba(13,110,253,0.12);
+}
+.form-control.ng-invalid.ng-touched {
+  border-color: #dc3545;
+  box-shadow: 0 0 0 0.25rem rgba(220,53,69,0.25);
+}
+.btn {
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Post title */
-.post-card h2 {
-  color: #007bff;
-  margin-bottom: 10px;
-  font-size: 1.4rem;
+.btn-dark {
+  background-color: #0a58ca !important;
+  box-shadow: 0 6px 16px rgba(10,88,202,0.4);
+}
+.btn {
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Post body text */
-.post-card p {
-  color: #555;
-  line-height: 1.6;
-  font-size: 1rem;
+.btn-dark {
+  background-color: #0a58ca !important;
+  box-shadow: 0 6px 16px rgba(10,88,202,0.4);
 }
 
-/* Responsive for small screens */
-@media (max-width: 600px) {
-  .container {
-    padding: 10px;
-  }
-
-  .post-card {
-    padding: 15px;
-  }
+.btn:disabled {
+  background-color: #9ec5fe !important;
+  border-color: #9ec5fe !important;
+  cursor: not-allowed;
+  opacity: 0.8;
+}
+.btn-dark:disabled {
+  box-shadow: none;
 }

@@ -1,12 +1,12 @@
-
-import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
-import { App } from './app/app';  
-import { provideRouter } from '@angular/router';
 import { bootstrapApplication } from '@angular/platform-browser';
+import { importProvidersFrom } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
+import { AppComponent } from './app/app';
 
-bootstrapApplication(App, {
+
+bootstrapApplication(AppComponent, {
   providers: [
-    provideHttpClient(withInterceptorsFromDi()),
-    provideRouter([]) 
-  ],
-}).catch(err => console.error(err));
+    importProvidersFrom(ReactiveFormsModule)
+  ]
+})
+.catch(err => console.error(err));

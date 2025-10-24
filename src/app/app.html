@@ -1,10 +1,58 @@
-<div class="container">
-  <h1>📜GET API </h1>
-  <div class="posts">
-    <div class="post-card" *ngFor="let p of posts">
-      <p>{{ p.id }}</p>
-      <h2>{{ p.title }}</h2>
-      <p>{{ p.body }}</p>
+<div class="d-flex justify-content-center align-items-center vh-100 bg-light">
+  <div class="card shadow-lg p-4" style="max-width: 420px; width: 100%;">
+    <h4 class="text-center mb-3">Create Account</h4>
+    <p class="text-center text-muted small mb-4">Fill in your details below</p>
+
+    <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+      <!-- Name -->
+      <div class="mb-3">
+        <label class="form-label">Full Name</label>
+        <input type="text" formControlName="name" class="form-control"
+               [class.is-invalid]="submitted && f['name'].invalid"
+               placeholder="Enter your name">
+        <div *ngIf="submitted && f['name'].invalid" class="invalid-feedback">
+          <div *ngIf="f['name'].errors?.['required']">Name is required.</div>
+          <div *ngIf="f['name'].errors?.['minlength']">At least 2 characters.</div>
+        </div>
+      </div>
+
+      <!-- Email -->
+      <div class="mb-3">
+        <label class="form-label">Email address</label>
+        <input type="email" formControlName="email" class="form-control"
+               [class.is-invalid]="submitted && f['email'].invalid"
+               placeholder="you@example.com">
+        <div *ngIf="submitted && f['email'].invalid" class="invalid-feedback">
+          <div *ngIf="f['email'].errors?.['required']">Email is required.</div>
+          <div *ngIf="f['email'].errors?.['email']">Enter a valid email.</div>
+        </div>
+      </div>
+
+      <!-- Password -->
+      <div class="mb-3">
+        <label class="form-label">Password</label>
+        <input type="password" formControlName="password" class="form-control"
+               [class.is-invalid]="submitted && f['password'].invalid"
+               placeholder="Enter your password">
+        <div *ngIf="submitted && f['password'].invalid" class="invalid-feedback">
+          <div *ngIf="f['password'].errors?.['required']">Password is required.</div>
+          <div *ngIf="f['password'].errors?.['minlength']">Min 6 characters.</div>
+        </div>
+      </div>
+
+      <!-- ✅ Button -->
+      <div class="d-grid">
+        <button type="submit"
+                class="btn btn-primary btn-lg"
+                [disabled]="signupForm.invalid"
+                [ngClass]="{'btn-dark': success}">
+          Sign Up
+        </button>
+      </div>
+    </form>
+
+    <div *ngIf="success" class="alert alert-success mt-3 text-center">
+      Account created successfully!
     </div>
   </div>
 </div>
